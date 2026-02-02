@@ -130,6 +130,7 @@ class QuillToolbarToggleStyleButtonState
         iconSize,
         iconButtonFactor,
         iconTheme,
+        tooltip,
       ),
     );
   }
@@ -169,6 +170,7 @@ Widget defaultToggleStyleButtonBuilder(
   double iconSize = kDefaultIconSize,
   double iconButtonFactor = kDefaultIconButtonFactor,
   QuillIconTheme? iconTheme,
+  String? tooltip,
 ]) {
   final isEnabled = onPressed != null;
   return QuillToolbarIconButton(
@@ -180,5 +182,6 @@ Widget defaultToggleStyleButtonBuilder(
     onPressed: onPressed,
     afterPressed: afterPressed,
     iconTheme: iconTheme,
+    tooltip: tooltip,
   );
 }
