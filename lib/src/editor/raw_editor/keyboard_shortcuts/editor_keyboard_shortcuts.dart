@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
@@ -62,6 +63,9 @@ class EditorKeyboardShortcuts extends StatelessWidget {
         actions: mergeMaps<Type, Action<Intent>>(actions, {...?customActions}),
         child: Focus(
           focusNode: focusNode,
+          // On the web the editor's text-field semantics node carries focus;
+          // a focusable node here would take DOM focus away from it (#2531).
+          includeSemantics: !kIsWeb || readOnly,
           onKeyEvent: _onKeyEvent,
           child: QuillKeyboardListener(
             child: Container(constraints: constraints, child: child),

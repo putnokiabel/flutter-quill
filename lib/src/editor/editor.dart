@@ -353,6 +353,7 @@ class QuillEditorState extends State<QuillEditor>
       // SingleChildScrollView. Thanks to @wliumelb for the workaround.
       // See issue https://github.com/singerdmx/flutter-quill/issues/304
       return KeyboardListener(
+        includeSemantics: false,
         onKeyEvent: (_) {},
         focusNode: FocusNode(
           onKeyEvent: (node, event) => KeyEventResult.skipRemainingHandlers,
